@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs - ETEA Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ETEA Test MCQs</h1>
+    </header>
+    <main>
+        <h2>Multiple Choice Questions</h2>
+        <div id="mcq-container"></div>
+        <button id="next">Next</button>
+        <button id="submit">Submit</button>
+    </main>
+    <script>
+        // MCQs Page Functionality
+        if (document.getElementById('mcq-container')) {
+            const mcqContainer = document.getElementById('mcq-container');
+            const questions = [
+    // Maths
+    {
+        "question": "What is the HCF of 12 and 16?",
+        "options": ["2", "4", "8", "12"],
+        "answer": "4"
+    },
+    {
+        "question": "What is the LCM of 4 and 5?",
+        "options": ["10", "15", "20", "25"],
+        "answer": "20"
+    },
+    {
+        "question": "Which of the following is a natural number?",
+        "options": ["-1", "0", "1", "1.5"],
+        "answer": "1"
+    },
+    {
+        "question": "Which of the following is a whole number?",
+        "options": ["-1", "0", "1", "2"],
+        "answer": "0"
+    },
+    {
+        "question": "Which of the following is an integer?",
+        "options": ["1.5", "0", "-2", "3.5"],
+        "answer": "-2"
+    },
+    {
+        "question": "What is the union of the sets {1, 2} and {2, 3}?",
+        "options": ["{1, 2}", "{2, 3}", "{1, 2, 3}", "{}"],
+        "answer": "{1, 2, 3}"
+    },
+    {
+        "question": "What is the intersection of the sets {1, 2, 3} and {2, 3, 4}?",
+        "options": ["{1}", "{2}", "{3}", "{2, 3}"],
+        "answer": "{2, 3}"
+    },
+    {
+        "question": "What type of set is {x | x is a prime number}?",
+        "options": ["Finite", "Infinite", "Empty", "Universal"],
+        "answer": "Infinite"
+    },
+    {
+        "question": "What is the HCF of 24, 36, and 60?",
+        "options": ["6", "12", "18", "24"],
+        "answer": "12"
+    },
+    {
+        "question": "What is the LCM of 3, 4, and 5?",
+        "options": ["15", "20", "30", "60"],
+        "answer": "60"
+    },
+    {
+        "question": "What is the value of 5! (5 factorial)?",
+        "options": ["120", "60", "30", "10"],
+        "answer": "120"
+    },
+    {
+        "question": "What is the area of a rectangle with length 4 and width 5?",
+        "options": ["20", "15", "25", "30"],
+        "answer": "20"
+    },
+    {
+        "question": "What is the perimeter of a square with side length 6?",
+        "options": ["24", "30", "36", "18"],
+        "answer": "24"
+    },
+    {
+        "question": "What is the sum of angles in a triangle?",
+        "options": ["90 degrees", "180 degrees", "360 degrees", "270 degrees"],
+        "answer": "180 degrees"
+    },
+    {
+        "question": "What is the value of 3 × (4 + 5)?",
+        "options": ["27", "24", "27", "30"],
+        "answer": "27"
+    },
+
+    // Science
+    {
+        "question": "What are biotic components?",
+        "options": ["Living organisms", "Non-living things", "Both living and non-living", "None of the above"],
+        "answer": "Living organisms"
+    },
+    {
+        "question": "What are abiotic components?",
+        "options": ["Plants", "Animals", "Water and minerals", "Bacteria"],
+        "answer": "Water and minerals"
+    },
+    {
+        "question": "What is photosynthesis?",
+        "options": ["Process of respiration", "Conversion of light energy to chemical energy", "Digestion of food", "None of the above"],
+        "answer": "Conversion of light energy to chemical energy"
+    },
+    {
+        "question": "What organ is responsible for hearing?",
+        "options": ["Eye", "Ear", "Nose", "Skin"],
+        "answer": "Ear"
+    },
+    {
+        "question": "What is the structure of the eye responsible for focusing light?",
+        "options": ["Cornea", "Lens", "Retina", "Iris"],
+        "answer": "Lens"
+    },
+    {
+        "question": "What is the outermost layer of the skin called?",
+        "options": ["Epidermis", "Dermis", "Hypodermis", "Subcutaneous layer"],
+        "answer": "Epidermis"
+    },
+    {
+        "question": "What is the basic unit of life?",
+        "options": ["Cell", "Tissue", "Organ", "Organism"],
+        "answer": "Cell"
+    },
+    {
+        "question": "Which of the following is a type of organism?",
+        "options": ["Prokaryotes", "Eukaryotes", "Fungi", "All of the above"],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What is the structure of a plant that absorbs water?",
+        "options": ["Leaves", "Roots", "Stems", "Flowers"],
+        "answer": "Roots"
+    },
+    {
+        "question": "What is the solar system composed of?",
+        "options": ["Stars only", "Planets only", "Stars and planets", "Only Earth"],
+        "answer": "Stars and planets"
+    },
+    {
+        "question": "What is the chemical formula for water?",
+        "options": ["H2O", "CO2", "O2", "NaCl"],
+        "answer": "H2O"
+    },
+    {
+        "question": "What is the process of converting liquid into gas called?",
+        "options": ["Condensation", "Evaporation", "Sublimation", "Precipitation"],
+        "answer": "Evaporation"
+    },
+    {
+        "question": "What is the hardest natural substance on Earth?",
+        "options": ["Gold", "Diamond", "Iron", "Silver"],
+        "answer": "Diamond"
+    },
+    {
+        "question": "What is the pH level of pure water?",
+        "options": ["0", "7", "14", "10"],
+        "answer": "7"
+    },
+    {
+        "question": "What is the force that pulls objects toward the Earth?",
+        "options": ["Friction", "Gravity", "Magnetism", "Inertia"],
+        "answer": "Gravity"
+    },
+    {
+        "question": "What are the two main types of organisms?",
+        "options": ["Prokaryotes and Eukaryotes", "Plants and Animals", "Herbivores and Carnivores", "None of the above"],
+        "answer": "Prokaryotes and Eukaryotes"
+    },
+
+    // Physics
+    {
+        "question": "What is the unit of force?",
+        "options": ["Joule", "Newton", "Watt", "Pascal"],
+        "answer": "Newton"
+    },
+    {
+        "question": "What is the speed of light?",
+        "options": ["300,000 km/s", "150,000 km/s", "450,000 km/s", "600,000 km/s"],
+        "answer": "300,000 km/s"
+    },
+    {
+        "question": "What is the formula for calculating speed?",
+        "options": ["Distance = Speed × Time", "Speed = Distance × Time", "Speed = Distance / Time", "Time = Distance / Speed"],
+        "answer": "Speed = Distance / Time"
+    },
+    {
+        "question": "What is the main source of energy for the Earth?",
+        "options": ["Wind", "Fossil fuels", "The Sun", "Water"],
+        "answer": "The Sun"
+    },
+    {
+        "question": "What is the law of inertia?",
+        "options": ["An object in motion stays in motion", "Force equals mass times acceleration", "For every action, there is an equal and opposite reaction", "None of the above"],
+        "answer": "An object in motion stays in motion"
+    },
+
+    // Chemistry
+    {
+        "question": "What is the smallest unit of an element?",
+        "options": ["Molecule", "Atom", "Compound", "Ion"],
+        "answer": "Atom"
+    },
+    {
+        "question": "What is the chemical symbol for gold?",
+        "options": ["Au", "Ag", "Pb", "Fe"],
+        "answer": "Au"
+    },
+    {
+        "question": "What is the process of a solid turning directly into a gas called?",
+        "options": ["Evaporation", "Sublimation", "Condensation", "Melting"],
+        "answer": "Sublimation"
+    },
+    {
+        "question": "What is the pH of an acid?",
+        "options": ["Less than 7", "Equal to 7", "Greater than 7", "None of the above"],
+        "answer": "Less than 7"
+    },
+    {
+        "question": "What is the main gas found in the Earth's atmosphere?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "answer": "Nitrogen"
+    },
+
+    // English
+    {
+        "question": "Which of the following is a noun?",
+        "options": ["Run", "Quickly", "Happiness", "Very"],
+        "answer": "Happiness"
+    },
+    {
+        "question": "What is the past tense of 'go'?",
+        "options": ["Goes", "Gone", "Went", "Going"],
+        "answer": "Went"
+    },
+    {
+        "question": "What is an article?",
+        "options": ["A type of noun", "A part of speech", "A verb", "An adjective"],
+        "answer": "A part of speech"
+    },
+    {
+        "question": "Which of the following is a conjunction?",
+        "options": ["And", "But", "Or", "All of the above"],
+        "answer": "All of the above"
+    },
+    {
+        "question": "What part of speech describes a noun?",
+        "options": ["Verb", "Adjective", "Adverb", "Pronoun"],
+        "answer": "Adjective"
+    },
+    {
+        "question": "Which of the following is a preposition?",
+        "options": ["In", "Run", "Happy", "Quickly"],
+        "answer": "In"
+    },
+    {
+        "question": "Which sentence is correct?",
+        "options": ["He go to school.", "He goes to school.", "He gone to school.", "He going to school."],
+        "answer": "He goes to school."
+    },
+    {
+        "question": "What is the plural form of 'child'?",
+        "options": ["Childs", "Children", "Childes", "Childer"],
+        "answer": "Children"
+    },
+
+    // Urdu
+    {
+        "question": "اسم کی تعریف کیا ہے؟",
+        "options": ["کسی عمل کا نام", "کسی چیز کا نام", "کسی صفت کا نام", "کسی حالت کا نام"],
+        "answer": "کسی چیز کا نام"
+    },
+    {
+        "question": "فعل کی اقسام میں کون سی شامل ہیں؟",
+        "options": ["ماضی، حال، مستقبل", "اسم، صفت", "حالت، کیفیت", "سب"],
+        "answer": "ماضی، حال، مستقبل"
+    },
+    {
+        "question": "جملے میں 'اور' کا کیا کردار ہے؟",
+        "options": ["فعل", "اسم", "حرف ربط", "صفت"],
+        "answer": "حرف ربط"
+    },
+    {
+        "question": "کون سا لفظ اسم ہے؟",
+        "options": ["چلنا", "بہت", "کتاب", "خوش"],
+        "answer": "کتاب"
+    },
+    {
+        "question": "مفرد کا جمع کیا ہے؟",
+        "options": ["کتابیں", "کتابوں", "کتابوں", "کتاب"],
+        "answer": "کتابیں"
+    },
+    {
+        "question": "جملے کی ساخت کیسی ہوتی ہے؟",
+        "options": ["اسم + فعل", "فعل + اسم", "اسم + صفت", "فعل + صفت"],
+        "answer": "اسم + فعل"
+    },
+    {
+        "question": "فعل ماضی کی مثال کون سی ہے؟",
+        "options": ["چلا", "چلتا", "چلے گا", "چلنا"],
+        "answer": "چلا"
+    },
+    {
+        "question": "اسم نکرہ کی مثال کون سی ہے؟",
+        "options": ["پاکستان", "کتاب", "خوشی", "شہر"],
+        "answer": "کتاب"
+    }
+]
+    localStorage.setItem('testResults', JSON.stringify(questions));
+
+
+
+            let currentQuestionIndex = 0;
+            let score = 0;
+
+            function loadQuestion() {
+                const currentQuestion = questions[currentQuestionIndex];
+                mcqContainer.innerHTML = `
+                    <p>${currentQuestion.question}</p>
+                    ${currentQuestion.options.map((option) => `
+                        <label>
+                            <input type="radio" name="mcq" value="${option}"> ${option}
+                        </label>
+                    `).join('')}
+                `;
+            }
+
+            document.getElementById('next').addEventListener('click', function() {
+                const selectedOption = document.querySelector('input[name="mcq"]:checked');
+                if (selectedOption) {
+                    if (selectedOption.value === questions[currentQuestionIndex].answer) {
+                        score++;
+                    }
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        loadQuestion();
+                    } else {
+                        alert(`You have completed the test! Your score is: ${score}/${questions.length}`);
+                        localStorage.setItem('score', score); // Store score in localStorage
+                        window.location.href = 'completion.html'; // Redirect to the completion page
+                    }
+                } else {
+                    alert("Please select an answer.");
+                }
+            });
+
+            document.getElementById('submit').addEventListener('click', function() {
+                alert(`Test submitted! Your score is: ${score}/${questions.length}`);
+                localStorage.setItem('score', score); // Store score in localStorage
+                window.location.href = 'completion.html'; // Redirect to the completion page
+            });
+
+            loadQuestion(); // Load the first question
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Student Details</h1>
+    </header>
+    <main>
+        <section id="student-info">
+            <h2>Student Information</h2>
+            <ul>
+                <li><strong>Student Name:</strong> Furqan</li>
+                <li><strong>Father's Name:</strong> Ghani Khan</li>
+                <li><strong>Country:</strong> Pakistan</li>
+                <li><strong>Grade:</strong> 6th</li>
+                <li><strong>Nationality:</strong> Pakistani</li>
+            </ul>
+        </section>
+        <section id="score-info">
+            <h2>Score Information</h2>
+            <p>Your score from the MCQs test is: <span id="score"></span></p>
+        </section>
+        <button onclick="goBack()">Go Back</button>
+        <button onclick="startTest()">Start Test</button> <!-- Start Test Button -->
+    </main>
+    <script>
+        // Retrieve the score from localStorage
+        const score = localStorage.getItem('score') || 'Not Available';
+        document.getElementById('score').textContent = score;
+
+        // Function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to start the test
+        function startTest() {
+            window.location.href = 'mcqs.html'; // Link to the MCQs page
+        }
+    </script>
+</body>
+</html>

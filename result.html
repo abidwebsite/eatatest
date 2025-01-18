@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - ETEA Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #000; /* Dark background */
+            color: #00b3ff; /* Neon blue text */
+        }
+        header {
+            margin: 20px 0;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 2px solid #00b3ff; /* Neon blue border */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow */
+        }
+        th, td {
+            border: 1px solid #00b3ff; /* Neon blue border */
+            padding: 10px;
+            color: #00b3ff; /* Neon blue text */
+        }
+        th {
+            background-color: #4caf50; /* Green for header */
+            color: white;
+        }
+        .correct {
+            background-color: #c8e6c9; /* Light green for correct answers */
+        }
+        .incorrect {
+            background-color: #ffcdd2; /* Light red for incorrect answers */
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #00b3ff; /* Neon blue button */
+            color: white;
+            border: none;
+            border-radius: 5px; /* Rounded button */
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0091cc; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Test Results</h1>
+    </header>
+    <main>
+        <h2>Your Test Results</h2>
+
+        <h3>Correct Answers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody id="correctResultsTable"></tbody>
+        </table>
+
+        <h3>Incorrect Answers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                    <th>Correct Answer</th>
+                </tr>
+            </thead>
+            <tbody id="incorrectResultsTable"></tbody>
+        </table>
+
+        <button id="restart">Restart Test</button>
+        <button id="goBack">Go Back</button>
+    </main>
+
+    <script>
+        // Function to get results from local storage
+        function getResults() {
+            const results = localStorage.getItem('testResults');
+            return results ? JSON.parse(results) : [];
+        }
+
+        // Function to display results
+        function displayResults(questions) {
+            const correctResultsTable = document.getElementById('correctResultsTable');
+            const incorrectResultsTable = document.getElementById('incorrectResultsTable');
+
+            questions.forEach((q) => {
+                const row = document.createElement('tr');
+                if (q.userAnswer === q.correctAnswer) {
+                    row.innerHTML = `
+                        <td>${q.question}</td>
+                        <td class="correct">${q.userAnswer}</td>
+                        <td>${q.correctAnswer}</td>
+                    `;
+                    correctResultsTable.appendChild(row);
+                } else {
+                    row.innerHTML = `
+                        <td>${q.question}</td>
+                        <td class="incorrect">${q.userAnswer}</td>
+                        <td>${q.correctAnswer}</td>
+                    `;
+                    incorrectResultsTable.appendChild(row);
+                }
+            });
+        }
+
+        // Load results from local storage
+        const questions = getResults();
+        displayResults(questions);
+
+        // Function to restart the test
+        document.getElementById('restart').addEventListener('click', function() {
+            localStorage.removeItem('testResults'); // Clear previous results
+            window.location.href = 'index.html'; // Redirect to start page
+        });
+
+        // Function to go back to the completion page
+        document.getElementById('goBack').addEventListener('click', function() {
+            window.location.href = 'completion.html'; // Redirect to completion page
+        });
+    </script>
+</body>
+</html>
